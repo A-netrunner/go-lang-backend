@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/A-netrunner/go-backend/handlers"
+	"github.com/A-netrunner/go-backend/middleware"
 	"github.com/gorilla/mux"
 )
 
@@ -18,6 +19,6 @@ func NewRouter() *mux.Router {
 
 	api.HandleFunc("/users", handlers.GetUsers).Methods("GET")
 	api.HandleFunc("/users", handlers.CreateUser).Methods("POST")
-
+	r.Use(middleware.Logger)
 	return r
 }
