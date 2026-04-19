@@ -17,6 +17,7 @@ func NewRouter() *mux.Router {
 	})
 
 	api.HandleFunc("/users", handlers.GetUsers).Methods("GET")
+	api.HandleFunc("/users", handlers.CreateUser).Methods("POST")
 
 	return r
 }
